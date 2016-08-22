@@ -7,7 +7,7 @@ def check_events(ship):
     if event.type == pygame.QUIT:
       sys.exit()
     elif event.type == pygame.KEYDOWN:
-      if event.key == pygame.K_ESC:
+      if event.key == pygame.K_ESCAPE:
         sys.exit()
       elif event.key == pygame.K_RIGHT:
         ship.moving_right = True
