@@ -21,7 +21,7 @@ def check_keyup_events(event, ship):
     ship.moving_right = False
   elif event.key == pygame.K_LEFT:
     ship.moving_left = False
-  if event.key == pygame.K_UP:
+  elif event.key == pygame.K_UP:
     ship.moving_up = False
   elif event.key == pygame.K_DOWN:
     ship.moving_down = False
