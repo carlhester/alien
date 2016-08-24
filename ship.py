@@ -12,8 +12,8 @@ class Ship():
     self.screen_rect = screen.get_rect()
 
     # start each new ship at the bottom center
-    self.center = float(self.rect.centerx)
-    self.centery = float(self.rect.centery)
+    self.center = float(self.screen_rect.centerx)
+    self.centery = float(self.screen_rect.centery)
 
     # movement flag
     self.moving_right = False
