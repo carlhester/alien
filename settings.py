@@ -10,11 +10,11 @@ class Settings():
     self.bg_image = 'images/space.bmp'
 
     # ship settings
-    self.ship_speed_factor = 5
+    self.ship_speed_factor = 10
     
     # bullet settings
     self.bullet_width = 5
     self.bullet_height = 5
-    self.bullet_speed = 5
+    self.bullet_speed = 15
     self.bullet_color = 160, 160, 160
     self.bullets_max = 15
