@@ -43,7 +43,9 @@ def check_events(ai_settings, screen, ship, bullets):
     elif event.type == pygame.KEYUP:
       check_keyup_events(event,ship)
 
-
+def update_aliens(aliens):
+  """ update pos of all aliens in fleet"""
+  aliens.update()
 
 def update_screen(ai_settings, screen, bg, ship, aliens, bullets):
   """ Update images on the screen and flip to new screen """
