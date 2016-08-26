@@ -43,6 +43,8 @@ def check_events(ai_settings, screen, ship, bullets):
     elif event.type == pygame.KEYUP:
       check_keyup_events(event,ship)
 
+
+
 def update_screen(ai_settings, screen, bg, ship, aliens, bullets):
   """ Update images on the screen and flip to new screen """
   # Redraw the screen during each pass through the loop
@@ -65,22 +67,31 @@ def update_bullets(bullets):
   for bullet in bullets.copy():
     if bullet.rect.bottom <= 0:
       bullets.remove(bullet)
-    
+   
+def get_number_aliens_x(ai_settings, alien_width):
+  """ determine the number of aliens that fit in a row"""
+  available_space_x = ai_settings.screen_width - 2 * alien_width
+  number_aliens_x = int(available_space_x / (2 * alien_width))
+  return number_aliens_x
+  
+def create_alien(ai_settings, screen, aliens, alien_number):
+  """ create an alien and place it in the row"""
+  alien = Alien(ai_settings, screen)
+  alien_width = alien.rect.width
+  alien.x = alien_width + 2 * alien_width * alien_number
+  alien.rect.x = alien.x
+  aliens.add(alien)
+
 def create_fleet(ai_settings, screen, aliens):
   """ Create a fleet of aliens"""
   # create an alien and find the number of aliens in a row
   # spacing between each alien is equal to one alien width
   alien = Alien(ai_settings, screen)
-  alien_width = alien.rect.width
-  available_space_x = ai_settings.screen_width - 2 * alien_width
-  number_aliens_x = int(available_space_x / (2 * alien_width))
-  
+  number_aliens_x = get_number_aliens_x(ai_settings, alien.rect.width)
+ 
   # create first row of aliens
   for alien_number in range(number_aliens_x):
-    # Create an alien and place it in row
-    alien = Alien(ai_settings, screen)
-    alien.x = alien_width + 2 * alien_width * alien_number
-    alien.rect.x = alien.x
-    aliens.add(alien)
+    create_alien(ai_settings, screen, aliens, alien_number)
+
 
 
